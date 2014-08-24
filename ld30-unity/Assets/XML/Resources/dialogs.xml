@@ -1,0 +1,13 @@
+<dialogs>
+    <dialog name="TestDialog">
+        <phase id="0">
+            <speaker id="0"/>
+            <line>This is a dialog box!</line>
+            <line>It says a lot.</line>
+            <next id="1"/>
+        </phase>
+        <phase id="1">
+            <line>But there is more.</line>
+        </phase>
+    </dialog>
+</dialogs>
