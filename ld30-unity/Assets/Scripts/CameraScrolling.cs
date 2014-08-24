@@ -22,11 +22,16 @@ public class CameraScrolling : MonoBehaviour {
     float targetCharacterX = 0.0f;
     float targetCharacterY = 0.0f;
 
+    GlobalState state;
 	// Use this for initialization
 	void Start () {
 	
 	}
-	
+
+    void Awake() {
+        state = GameObject.Find("Global State").GetComponent<GlobalState>();
+    }
+
     public void StartScrolling(float targetX, float targetY) {
 
         oldCameraX = Camera.main.transform.position.x;
@@ -62,7 +67,17 @@ public class CameraScrolling : MonoBehaviour {
         GameObject.Find("Character").GetComponent<TopDownCharacterController>().canMove = true;
     }
 
+    void OnLevelWasLoaded(int level) {
+        if (!state.warped) {
+            GameObject character = GameObject.Find("Character");
+            character.transform.position = state.warpTarget;
+            Camera.main.transform.position = new Vector3(state.cameraWarpTarget.x, state.cameraWarpTarget.y, -10.0f);
+            state.warped = true;
+        }
+    }
+
     void Update () {
+
         if (cameraIsScrolling) {
             GameObject character = GameObject.Find("Character");
             float cameraX = Camera.main.transform.position.x;

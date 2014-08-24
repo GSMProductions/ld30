@@ -17,6 +17,7 @@ public class TopDownCharacterController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+
         if (!canMove) {
             rigidbody2D.velocity = new Vector2(0.0f, 0.0f);
             return;
