@@ -44,7 +44,7 @@ public class CameraScrolling : MonoBehaviour {
                 Camera.main.transform.position = new Vector3(targetCameraX, targetCameraY, -10.0f);
                 StopScrolling();
             } else {
-                Vector3 travel = new Vector3( cameraX+(targetCameraX-oldCameraX) * Time.deltaTime/2.0f,  cameraY+(targetCameraY-oldCameraY) * Time.deltaTime/2.0f, -10.0f);
+                Vector3 travel = new Vector3( cameraX+(targetCameraX-oldCameraX) * Time.deltaTime/1.0f,  cameraY+(targetCameraY-oldCameraY) * Time.deltaTime/1.0f, -10.0f);
                 Camera.main.transform.position = travel;
             }
         }

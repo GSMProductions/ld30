@@ -8,8 +8,6 @@ public class ScreenEdge : MonoBehaviour {
 
     public float screenSize = 10.0f;
 
-    bool cameraIsScrolling = false;
-
     float oldCameraX = 0.0f;
     float oldCameraY = 0.0f;
 
