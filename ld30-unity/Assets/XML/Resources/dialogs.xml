@@ -1,13 +1,96 @@
 <dialogs>
-    <dialog name="TestDialog">
+    <dialog name="Opening">
         <phase id="0">
-            <speaker id="0"/>
-            <line>This is a dialog box!</line>
-            <line>It says a lot.</line>
+            <line>Meet S0l1d_Sn4k3.</line>
             <next id="1"/>
         </phase>
         <phase id="1">
-            <line>But there is more.</line>
+            <line>Like many in the City,</line>
+            <line>he lives alone.</line>
+            <next id="2"/>
+        </phase>
+        <phase id="2">
+            <line>One day, something felt</line>
+            <line>very strange...</line>
+            <next id="3"/>
+        </phase>
+        <phase id="3">
+            <line>Leaving the computer,</line>
+            <line>he decided to check outside.</line>
+        </phase>
+    </dialog>
+    <dialog name="Go outside">
+        <phase id="0">
+            <speaker name="S0L1D_SN4K3"/>
+            <line>Nah, enough of that.</line>
+            <next id="1"/>
+        </phase>
+        <phase id="1">
+            <speaker name="S0L1D_SN4K3"/>
+            <line>I feel like I should</line>
+            <line>go check outside.</line>
+            <next id="2"/>
+        </phase>
+        <phase id="2">
+            <speaker name="S0L1D_SN4K3"/>
+            <line>I have a bad feeling...</line>
+        </phase>
+    </dialog>    
+    <dialog name="First time outside">
+        <phase id="0">
+            <speaker name="S0L1D_SN4K3"/>
+            <line>What?!</line>
+            <next id="1"/>
+        </phase>
+        <phase id="1">
+            <speaker name="S0L1D_SN4K3"/>
+            <line>What is this?!</line>
+            <line>This fence was not here!</line>
+            <next id="2"/>
+        </phase>
+        <phase id="2">
+            <speaker name="S0L1D_SN4K3"/>
+            <line>Am I trapped here?</line>
+        </phase>
+    </dialog> 
+    <dialog name="First gate check">
+        <phase id="0">
+            <line>The gate will not budge.</line>
+            <next id="1"/>
+        </phase>
+        <phase id="1">
+            <speaker name="S0L1D_SN4K3"/>
+            <line>Locked.</line>
+            <line>I knew it.</line>
+            <next id="2"/>
+        </phase>
+        <phase id="2">
+            <speaker name="S0L1D_SN4K3"/>
+            <line>I bet you this big green button</line>
+            <line>over there would unlock it.</line>
+            <next id="3"/>
+        </phase>
+        <phase id="3">
+            <speaker name="S0L1D_SN4K3"/>
+            <line>But I cannot reach it.</line>
+            <line>I need someone to help me.</line>
+            <next id="4"/>
+        </phase>
+        <phase id="4">
+            <speaker name="S0L1D_SN4K3"/>
+            <line>I know! I will check online.</line>
+            <line>I am bound to find some help.</line>
+        </phase>
+    </dialog>
+    <dialog name="First gate check again">
+        <phase id="0">
+            <line>The gate will not budge.</line>
+            <line>Look for help online.</line>
+            <next id="1"/>
+        </phase>
+        <phase id="1">
+            <line>Press "SPACE" in front of</line>
+            <line>the computer and log in!</line>
         </phase>
     </dialog>
 </dialogs>

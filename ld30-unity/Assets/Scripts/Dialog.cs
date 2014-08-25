@@ -24,6 +24,9 @@ public class Dialog : MonoBehaviour {
     int textPhase;
     string currentDialog;
     int nextTextPhase;
+    string dialogTree;
+
+    GlobalState state;
 
     int getFontSize(int defaultSize) {
         return (int) (Mathf.Min(defaultSize * Screen.height/720.0f, defaultSize * Screen.width/1280.0f));
@@ -38,7 +41,15 @@ public class Dialog : MonoBehaviour {
     
         xmlFile = (TextAsset) Resources.Load("dialogs");
 
-        GetTextPhase("TestDialog", 0);
+        state = GameObject.Find("Global State").GetComponent<GlobalState>();
+        if (state.opening) {
+            GetTextPhase("Opening", 0);
+            state.opening = false;
+            state.first_time_outside = true;
+        } else if (state.first_time_outside) {
+            GetTextPhase("First time outside", 0);
+            state.first_time_outside = false;
+        }
     }
     
     // Update is called once per frame
@@ -51,12 +62,12 @@ public class Dialog : MonoBehaviour {
                 visible = false;
                 GameObject.Find("Character").GetComponent<TopDownCharacterController>().canMove = true;
             } else {
-                GetTextPhase("TestDialog", nextTextPhase);
+                GetTextPhase(dialogTree, nextTextPhase);
             }
 
     }
 
-    void GetTextPhase(string dialog, int phase) {
+    public void GetTextPhase(string dialog, int phase) {
         try {
             MemoryStream assetStream = new MemoryStream(xmlFile.bytes);
             XmlReader reader = XmlReader.Create(assetStream);
@@ -68,6 +79,8 @@ public class Dialog : MonoBehaviour {
             if (dialogNode == null) {
                 throw new UnityException("Dialog " + dialog + " cannot be found.");
             }
+            if (phase == 0)
+                dialogTree = dialog;
 
             XmlNode phaseNode = dialogNode.SelectSingleNode("phase[@id='" + phase + "']");
 
@@ -76,6 +89,12 @@ public class Dialog : MonoBehaviour {
             }
 
             currentDialog = "";
+
+            XmlNode speaker = phaseNode.SelectSingleNode("speaker");
+            if (speaker != null) {
+                currentDialog += speaker.Attributes["name"].Value + ":\n";
+            }
+
             foreach(XmlNode line in phaseNode.SelectNodes("line")) {
                 currentDialog += line.InnerText + "\n";
             }
@@ -89,6 +108,7 @@ public class Dialog : MonoBehaviour {
                 currentDialog += "\n(Space to close)";
             }
             GameObject.Find("Character").GetComponent<TopDownCharacterController>().canMove = false;
+            visible = true;
             
         } catch(Exception e) {
             throw e;

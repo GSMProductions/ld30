@@ -24,6 +24,7 @@ public class WarpPoint : MonoBehaviour {
         state.warpTarget = warpTarget;
         state.cameraWarpTarget = cameraWarpTarget;
         state.warped = false;
+        state.LoadingScreen();
         Application.LoadLevel(warpLevel);
     }
 
