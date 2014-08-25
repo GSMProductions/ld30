@@ -40,7 +40,7 @@ public class CameraScrolling : MonoBehaviour {
         targetCameraX = targetX;
         targetCameraY = targetY;
 
-        GameObject character = GameObject.Find("Character");
+        GameObject character = GameObject.Find("CharacterA");
         oldCharacterX = character.transform.position.x;
         oldCharacterY = character.transform.position.y;
 

@@ -15,6 +15,22 @@ public class GlobalState : MonoBehaviour {
 
     public GameObject loadingScreen; 
 
+    public string[] characters;
+    public int unlocked_characters;
+    public int current_character;
+
+    public string characterA_world;
+    public string characterB_world;
+    public string characterC_world;
+
+    public Vector2 characterA_position;
+    public Vector2 characterB_position;
+    public Vector2 characterC_position;
+
+    public string characterA_console;
+    public string characterB_console;
+    public string characterC_console;
+
     void OnLevelWasLoaded(int level) {
         FinishLoadingScreen();
     }

@@ -60,7 +60,7 @@ public class Dialog : MonoBehaviour {
         if (Input.GetKeyUp("space"))
             if (nextTextPhase == -1) {
                 visible = false;
-                GameObject.Find("Character").GetComponent<TopDownCharacterController>().canMove = true;
+                GameObject.Find(state.characters[state.current_character]).GetComponent<TopDownCharacterController>().canMove = true;
             } else {
                 GetTextPhase(dialogTree, nextTextPhase);
             }
@@ -107,7 +107,7 @@ public class Dialog : MonoBehaviour {
                 nextTextPhase = -1;
                 currentDialog += "\n(Space to close)";
             }
-            GameObject.Find("Character").GetComponent<TopDownCharacterController>().canMove = false;
+            GameObject.Find(state.characters[state.current_character]).GetComponent<TopDownCharacterController>().canMove = false;
             visible = true;
             
         } catch(Exception e) {

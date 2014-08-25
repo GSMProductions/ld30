@@ -10,6 +10,8 @@ public class TopDownCharacterController : MonoBehaviour {
 
     Animator anim;
 
+    GlobalState state;
+
 	// Use this for initialization
 	void Start () {
 	   anim = GetComponent<Animator>();
@@ -26,6 +28,10 @@ public class TopDownCharacterController : MonoBehaviour {
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
         moveDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+
+        if (Input.GetKeyUp("x")) {
+
+        }
         
         if (Mathf.Abs(moveDirection.x) >= Mathf.Abs(moveDirection.y) && Mathf.Abs(moveDirection.x) > 0) {
             if (moveDirection.x > 0)
@@ -41,8 +47,6 @@ public class TopDownCharacterController : MonoBehaviour {
 
         moveDirection = transform.TransformDirection(moveDirection);
         moveDirection *= speed;
-
-
 
         rigidbody2D.velocity = new Vector2(Input.GetAxis("Horizontal")*speed, Input.GetAxis("Vertical")*speed);
 	}
