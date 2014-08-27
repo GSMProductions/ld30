@@ -19,17 +19,13 @@ public class GlobalState : MonoBehaviour {
     public int unlocked_characters;
     public int current_character;
 
-    public string characterA_world;
-    public string characterB_world;
-    public string characterC_world;
+    public string[] characters_world;
 
-    public Vector2 characterA_position;
-    public Vector2 characterB_position;
-    public Vector2 characterC_position;
+    public Vector2[] characters_position;
+    public Vector3[] cameras_position;
 
-    public string characterA_console;
-    public string characterB_console;
-    public string characterC_console;
+    public string[] characters_console;
+
 
     void OnLevelWasLoaded(int level) {
         FinishLoadingScreen();
